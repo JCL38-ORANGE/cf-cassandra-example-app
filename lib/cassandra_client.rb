@@ -141,6 +141,14 @@ class CassandraClient < SimpleDelegator
     connection_details.fetch('contact-points').to_s.split(",").first
   end
 
+  def port
+    connection_details.fetch('port').to_i
+  end
+
+  def ssl
+    connection_details.fetch('ssl').to_s == "true"
+  end
+
   def connection_timeout
     connection_details.fetch('connection_timeout', 10).to_i
   end
@@ -151,6 +159,8 @@ class CassandraClient < SimpleDelegator
         username: username,
         password: password,
       hosts: hosts,
+      port: port,
+      ssl: ssl,
       connection_timeout: connection_timeout,
     }
   end
