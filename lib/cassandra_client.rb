@@ -142,11 +142,11 @@ class CassandraClient < SimpleDelegator
   end
 
   def port
-    connection_details.fetch('port').to_i
+    connection_details.fetch('port', "0").to_i
   end
 
   def ssl
-    connection_details.fetch('ssl').to_s == "true"
+    connection_details.fetch('ssl', false)
   end
 
   def connection_timeout
