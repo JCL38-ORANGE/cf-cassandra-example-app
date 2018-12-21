@@ -83,7 +83,7 @@ $ cf push
 You can now create and drop tables by POSTing and DELETEing to `myTable`.
 
 ```
-$ export APP=cassandra-example-app.example.com
+$ export APP=http://cassandra-example-app.example.com
 $ curl -X POST $APP/myTable
 $ curl -X DELETE $APP/myTable
 bar
